@@ -1,0 +1,73 @@
+.menu-for-currency {
+    background-color: #fff;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.14), 0px 2px 2px 0px rgba(0, 0, 0, 0.098), 0px 1px 5px 0px rgba(0, 0, 0, 0.084);
+}
+md-select {
+    padding: 5px 0 !important;
+    margin: 0px !important;
+}
+md-select .md-select-value {
+    padding: 4px !important;
+    border: 1px solid #f8f8f8;
+}
+md-option {
+    height: 35px !important;
+}
+md-option .md-text {
+    font-size: 14px !important;
+}
+.onezone-datepicker {
+	position: absolute !important;
+	top: 0 !important;
+	left: 0 !important;
+}
+.button.button-positive.button-outline {
+	font-size: 14px !important;
+    padding: 0px !important;
+    min-height: 30px !important;
+    margin: 0px !important;
+    margin-top: 5px !important;
+    height: 36px;
+    border: 1px solid #f8f8f8;
+    color: gray;
+    line-height: 0px;
+}
+.md-select-value .md-select-icon {
+	opacity: 0.5 !important;
+}
+.onezone-datepicker {
+	z-index: 10 !important;
+}
+.back-orange {
+	color: #f8971d !important;
+	font-weight: 900;
+}
+.back-blue {
+	color: #4355a5 !important;
+	font-weight: 900;
+}
+.back-green {
+	color: #49b150 !important;
+	font-weight: 900;
+}
+#menu-dashboard-content .menu-dashboard-footer {
+	padding-top: 0px;
+}
+.col-90 {
+	font-size: 15px;
+
+}
+#menu-dashboard-content .menu-dashboard-footer md-whiteframe {
+	padding: 15px 10px;
+}
+#toggle-menu-left-content {
+    margin-top: 65px !important;
+}
+#toggle-menu-left-header {
+    height: 70px;
+}
+#toggle-menu-left-content .menu-list .menu-item {
+    font-size: 15px;
+    padding: 17px;
+    color: #666;
+}

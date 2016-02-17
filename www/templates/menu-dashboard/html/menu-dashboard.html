@@ -1,0 +1,115 @@
+<!--View Information-->
+<!--View name : Menu Dashboard-->
+<!--Controller name : menuDashboardCtrl-->
+<!--Controller path : www/templates/themes/menu-dashboard/js/controllers.js-->
+<!--State name : app.menuDashboard-->
+<!--URL : #app/menuDashboard-->
+
+<ion-view title="Dashboard">
+    <!--menu dashboard section-->
+    <ion-content id="menu-dashboard-content">
+        <!--panel section-->
+        <div class="menu-panel">
+            <div class="row">
+                <div class="col-33 back-orange">
+                    <i class="">210</i>
+
+                    <p>Tenants</p>
+                </div>
+                <div class="col-33 back-green">
+                    <i class="">301</i>
+
+                    <p>Owners</p>
+                </div>
+                <div class="col-33 back-blue">
+                    <i class="">100</i>
+
+                    <p>Properties</p>
+                </div>
+            </div>
+        </div><!--end panel section-->
+
+
+        <div class="menu-dashboard-footer">
+            <md-whiteframe class="md-whiteframe-z1" layout="" ng-click="showListBottomSheet($event)" role="button" tabindex="0">
+                <div class="row">
+                    <!-- <div class="col-10">
+                        <i class="fa fa-wordpress"></i>
+                    </div> -->
+                    <div class="col-90">
+                        Collected Payment
+                    </div>
+                    <div class="col-10">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </md-whiteframe>
+
+            <md-whiteframe class="md-whiteframe-z1" layout="" ng-click="showToast('Google Connect')" role="button" tabindex="0">
+                <div class="row">
+                    <!-- <div class="col-10">
+                        <i class="fa fa-google-plus"></i>
+                    </div> -->
+                    <div class="col-90">
+                        Overdue Payment
+                    </div>
+                    <div class="col-10">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </md-whiteframe>
+
+            <md-whiteframe class="md-whiteframe-z1" layout="" ng-click="showToast('Facebook Connect')" role="button" tabindex="0">
+                <div class="row">
+                    <!-- <div class="col-10">
+                        <i class="fa fa-facebook"></i>
+                    </div> -->
+                    <div class="col-90">
+                        Users in Each Property
+                    </div>
+                    <div class="col-10">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </md-whiteframe>
+
+        </div>
+    </ion-content><!--Menu dashboard section-->
+</ion-view>
+
+
+<!--angular template section-->
+<script type="text/ng-template" id="ui-list-bottom-sheet-template">
+    <md-bottom-sheet class="md-list md-has-header" style="height: 100%; padding: 0;">
+        <div class="menu-for-currency">
+                <div class="row">
+                    <div class="col">
+                        <h4 style="color: gray; margin-bottom: 0px;">Total Collected payment</h4>
+                    </div>
+                </div> <!--end row-->
+                <div class="row">
+                    <div class="col-33">
+                        <md-select style="color: grey;" ng-model="mdSelectValue" aria-label="md-option">
+                            <md-option selected="selected" value="0">Tenants</md-option>
+                            <md-option value="1">Managers</md-option>
+                            <md-option value="2">Owners</md-option>
+                        </md-select>
+                    </div>
+                    <div class="col-33">
+                        <onezone-datepicker datepicker-object="onezoneDatepicker">
+                            <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                                {{onezoneDatepicker.date | date:'dd/MM/yy'}} 
+                            </button>
+                        </onezone-datepicker>
+                    </div>
+                    <div class="col-33">
+                        <onezone-datepicker datepicker-object="onezoneDatepicker1">
+                            <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                                {{onezoneDatepicker1.date | date:'dd/MM/yy'}} 
+                            </button>
+                        </onezone-datepicker>
+                    </div>
+                </div>
+            </div><!--end menu-for-currency class-->
+    </md-bottom-sheet>
+</script>
