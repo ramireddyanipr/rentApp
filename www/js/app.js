@@ -331,6 +331,26 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'ngIOS9UIWebViewPatch'
                         controller: "collectPaymentCtrl"
                     }
                 }
+            })
+
+            .state('app.overdue-payment', {
+                url: "/overdue-payment",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/overdue-payment/overdue-payment.html",
+                        controller: "overduePaymentCtrl"
+                    }
+                }
+            })
+
+            .state('app.each-property', {
+                url: "/each-property",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/each-property/each-property.html",
+                        controller: "each-propertyCtrl"
+                    }
+                }
             });
 
         //Use $urlRouterProvider.otherwise(Url);
