@@ -49,4 +49,30 @@ appControllers.controller('menuDashboardCtrl', function ($scope, $mdToast, $mdBo
             scope: $scope.$new(false),
         });
     };// End of showListBottomSheet.
+    
+    
+    // getting the length of tenants
+    var Tenant = Parse.Object.extend('Tenant');
+    var tenant = new Parse.Query(Tenant);
+    
+    tenant.find().then(function (success) {
+        $scope.tenantLength = success.length;
+    });
+    
+    // for real estate owner
+    var RealEstateOwner = Parse.Object.extend('RealEstateOwner');
+    var owner = new Parse.Query(RealEstateOwner);
+    
+    owner.find().then(function (success) {
+        $scope.ownerLength = success.length; 
+    });
+    
+    
+    // for properties
+    var RealEstateProperties = Parse.Object.extend('RealEstateProperties');
+    var properties = new Parse.Query(RealEstateProperties);
+    
+    properties.find().then(function (success) {
+        $scope.propertyLength = success.length; 
+    });
 });// End of controller menu dashboard.
