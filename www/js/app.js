@@ -351,7 +351,58 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'ngIOS9UIWebViewPatch'
                         controller: "each-propertyCtrl"
                     }
                 }
+            })
+
+            .state('app.management', {
+                url: "/management",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/user-management/management.html",
+                        controller: "managementCtrl"
+                    }
+                }
+            })
+
+            .state('app.owner-management', {
+                url: "/owner-management",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/owner-management/owner-management.html",
+                        controller: "OwnerManagementCtrl"
+                    }
+                }
+            })
+
+            .state('app.contract-management', {
+                url: "/contract-management",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/contract-management/contract-management.html",
+                        controller: "ContractManagementCtrl"
+                    }
+                }
+            })
+
+            .state('app.new-manager', {
+                url: "/new-manager",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/new-manager/new-manager.html",
+                        controller: "NewManagerCtrl"
+                    }
+                }
+            })
+
+            .state('app.manageproperties', {
+                url: "/manageproperties",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/manageproperties/manageproperties.html",
+                        controller: "ManagePropertiesCtrl"
+                    }
+                }
             });
+
 
         //Use $urlRouterProvider.otherwise(Url);
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
