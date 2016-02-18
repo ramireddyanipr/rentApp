@@ -81,59 +81,41 @@
 <!--angular template section-->
 <script type="text/ng-template" id="ui-list-bottom-sheet-template">
     <md-bottom-sheet class="md-list md-has-header" style="height: 100%; padding: 0;">
-        <div class="menu-for-currency">
-                <div class="row">
-                    <div class="col col-80">
-                        <h4 class="top-heading">Total Collected payment</h4>
-                    </div>
-                    <div class="col col-20">
-                        <a class="md-button md-accent md-fab fab-toolbar-medium filter-button" aria-label="Add" ng-click="showAdvanced($event)">
-                            <i class="fa fa-filter"></i>
-                        </a>
-                    </div>
-                </div> <!--end row-->
-                <div class="row">
-                    <div class="col-33">
-                        <md-select style="color: grey;" ng-model="mdSelectValue" aria-label="md-option">
-                            <md-option selected="selected" value="0">Tenants</md-option>
-                            <md-option value="1">Managers</md-option>
-                            <md-option value="2">Owners</md-option>
-                        </md-select>
-                    </div>
-                    <div class="col-33">
-                        <onezone-datepicker datepicker-object="onezoneDatepicker">
-                            <button class="button button-block button-outline button-positive show-onezone-datepicker">
-                                {{onezoneDatepicker.date | date:'dd/MM/yy'}} 
-                            </button>
-                        </onezone-datepicker>
-                    </div>
-                    <div class="col-33">
-                        <onezone-datepicker datepicker-object="onezoneDatepicker1">
-                            <button class="button button-block button-outline button-positive show-onezone-datepicker">
-                                {{onezoneDatepicker1.date | date:'dd/MM/yy'}} 
-                            </button>
-                        </onezone-datepicker>
-                    </div>
+        <div class="" style="background-color: #fff;">
+            <div class="row">
+                <div class="col col-80">
+                    <h4 class="top-heading">Total collected payment</h4>
                 </div>
-            </div><!--end menu-for-currency class-->
+            </div> <!--end row-->
+            <div class="row menu-for-currency">
+                <div class="col-33">
+                    <md-select style="color: grey;" ng-model="userType" aria-label="md-option">
+                        <md-option selected="selected" value="0">Tenants</md-option>
+                        <md-option value="1">Managers</md-option>
+                        <md-option value="2">Owners</md-option>
+                    </md-select>
+                </div>
+                <div class="col-33">
+                    <onezone-datepicker datepicker-object="sDate">
+                        <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                            {{sDate.date | date:'dd/MM/yy'}} 
+                        </button>
+                    </onezone-datepicker>
+                </div>
+                <div class="col-33">
+                    <onezone-datepicker datepicker-object="eDate">
+                        <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                            {{eDate.date | date:'dd/MM/yy'}} 
+                        </button>
+                    </onezone-datepicker>
+                </div>
+            </div><!--end-->
+
+            <div class="row">
+                <div class="col">
+                    {{ cPayment }}
+                </div>
+            </div>
+        </div><!--end menu-for-currency class-->
     </md-bottom-sheet>
-</script>
-
-<script type="text/ng-template" id="dialog1.tmpl.html"><md-dialog aria-label="Mango (Fruit)"  ng-cloak>
-    <form>
-        <md-toolbar class="alert-height">
-          <div class="md-toolbar-tools alert-height">
-            <h5 class="text-center text-white">Select Filter</h5>
-            <span flex></span>
-            <md-button class="md-icon-button" ng-click="cancel()">
-              <md-icon class="fa fa-close" aria-label="Close dialog"></md-icon>
-            </md-button>
-          </div>
-        </md-toolbar>
-
-        <md-dialog-content>
-            Filter content
-        </md-dialog-content>
-    </form>
-</md-dialog>
 </script>

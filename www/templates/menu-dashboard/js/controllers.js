@@ -1,8 +1,8 @@
 // Controller of menu dashboard page.
-appControllers.controller('menuDashboardCtrl', function ($scope,$mdMedia,$mdDialog,$mdToast, $mdBottomSheet) {
+appControllers.controller('menuDashboardCtrl', function ($scope,$mdMedia,$mdDialog,$mdToast,                    $mdBottomSheet, $q, dashBoard) {
 
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    $scope.onezoneDatepicker = {
+    $scope.sDate = {
         date: new Date(2016, 1, 7), // MANDATORY                     
         mondayFirst: false,                
         months: months,
@@ -12,7 +12,7 @@ appControllers.controller('menuDashboardCtrl', function ($scope,$mdMedia,$mdDial
             console.log('callback called', value);
         }
     };
-    $scope.onezoneDatepicker1 = {
+    $scope.eDate = {
         date: new Date(2016, 1, 7), // MANDATORY                     
         mondayFirst: false,                
         months: months,
@@ -44,61 +44,51 @@ appControllers.controller('menuDashboardCtrl', function ($scope,$mdMedia,$mdDial
     // For show show List Bottom Sheet.
     $scope.showListBottomSheet = function ($event) {
         $mdBottomSheet.show({
+            controller: collectedPaymentController,
             templateUrl: 'ui-list-bottom-sheet-template',
             targetEvent: $event,
             scope: $scope.$new(false),
+        }).then (function () {
+            console.log('---------- success ------------')
         });
     };// End of showListBottomSheet.
+    
+    
+    // collected payment controller
+    function collectedPaymentController ($scope, $timeout) {
+        $timeout (function () {
+            console.log($scope.userType)
+            var dashboard = new dashBoard();
+            $scope.cPayment = dashboard.getCollectedPayment($scope.userType, $scope.sDate.date,                                  $scope.eDate.date);
+        }, 200);
+    }; // end controller
+    
     
     
     // getting the length of tenants
     var Tenant = Parse.Object.extend('Tenant');
     var tenant = new Parse.Query(Tenant);
     
-    tenant.find().then(function (success) {
-        $scope.tenantLength = success.length;
-    });
-    
     // for real estate owner
     var RealEstateOwner = Parse.Object.extend('RealEstateOwner');
-    var owner = new Parse.Query(RealEstateOwner);
-    
-    owner.find().then(function (success) {
-        $scope.ownerLength = success.length; 
-    });
-    
+    var owner = new Parse.Query(RealEstateOwner);    
     
     // for properties
     var RealEstateProperties = Parse.Object.extend('RealEstateProperties');
     var properties = new Parse.Query(RealEstateProperties);
     
-    properties.find().then(function (success) {
-        $scope.propertyLength = success.length; 
-    });
+    $q.all([
+        tenant.find().then(function (success) {
+            $scope.tenantLength = success.length;
+        }),
 
-    /* filter modal start code */
-    $scope.showAdvanced = function(ev) {
-        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
-        $mdDialog.show({
-            controller: FilterController,
-            templateUrl: 'dialog1.tmpl.html',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose:true,
-            fullscreen: useFullScreen
+        owner.find().then(function (success) {
+            $scope.ownerLength = success.length; 
+        }),
+
+        properties.find().then(function (success) {
+            $scope.propertyLength = success.length; 
         })
-        .then(function(answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
-        }, function() {
-            $scope.status = 'You cancelled the dialog.';
-        });
-    };
-
-    /* filetr cancel code start */
-    function FilterController($scope){
-        $scope.cancel = function() {
-            $mdDialog.cancel();
-        };
-    }
+    ]);
 
 });// End of controller menu dashboard.
