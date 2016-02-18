@@ -321,6 +321,16 @@ angular.module('starter', ['ionic', 'onezone-datepicker', 'ngIOS9UIWebViewPatch'
                         controller: "catalogCtrl"
                     }
                 }
+            })
+
+            .state('app.collect-payment', {
+                url: "/collect-payment",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/collected-payment/collect-payment.html",
+                        controller: "collectPaymentCtrl"
+                    }
+                }
             });
 
         //Use $urlRouterProvider.otherwise(Url);

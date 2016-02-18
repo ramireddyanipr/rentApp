@@ -1810,3 +1810,21 @@ md-sidenav {
 .md-icon-button .fa-close{
   text-align: right;
 }
+.menu-for-currency{
+  position: relative;
+  z-index: 999;
+}
+.table-head div p{
+  color: #e91e63;
+  font-weight: bold !important;
+  padding-top: 5px;
+}
+
+.payments-div{
+  text-align: center !important;
+  padding: 8px 0px 0px 0px !important;
+  border-left: 1px solid rgba(225, 225, 225, 0.69) !important;
+  border-bottom: 1px solid rgba(225, 225, 225, 0.69) !important;
+  color: gray !important;
+
+}

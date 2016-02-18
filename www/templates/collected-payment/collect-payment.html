@@ -1,0 +1,100 @@
+<style>
+.has-header{
+    top: 93px;
+}
+</style>
+<ion-view title="Collected payment">
+    <!--left button on navigation bar-->
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back"></i>
+        </a>
+    </ion-nav-buttons>
+    <!--end left button on navigation bar-->
+    <!--menu dashboard section-->
+        <div class="" style="background-color: #fff;">
+            <div class="row">
+                <div class="col col-80">
+                    <h4 class="top-heading">Total collected payment</h4>
+                </div>
+            </div> <!--end row-->
+            <div class="row menu-for-currency">
+                <div class="col-33">
+                    <md-select style="color: grey;" ng-model="userType" aria-label="md-option">
+                        <md-option selected="selected" value="0">Tenants</md-option>
+                        <md-option value="1">Managers</md-option>
+                        <md-option value="2">Owners</md-option>
+                    </md-select>
+                </div>
+                <div class="col-33">
+                    <onezone-datepicker datepicker-object="sDate">
+                        <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                            {{sDate.date | date:'dd/MM/yy'}} 
+                        </button>
+                    </onezone-datepicker>
+                </div>
+                <div class="col-33">
+                    <onezone-datepicker datepicker-object="eDate">
+                        <button class="button button-block button-outline button-positive show-onezone-datepicker">
+                            {{eDate.date | date:'dd/MM/yy'}} 
+                        </button>
+                    </onezone-datepicker>
+                </div>
+            </div><!--end-->
+        <ion-content id="menu-dashboard-content">
+            <!-- start of pannel section -->
+            <div class="menu-panel">
+                <div class="row table-head">
+                    <div class="payments-div" style="width:15%;">
+                        <p>S.no</p>
+                    </div>
+                    <div class="payments-div" style="width:65%;">
+                        <p>Tenant</p>
+                    </div>
+                    <div class="payments-div" style="width:20%;">
+                        <p>Amount</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="payments-div" style="width:15%;">
+                        <p>1</p>
+                    </div>
+                    <div class="payments-div" style="width:65%;">
+                        <p>Setting</p>
+                    </div>
+                    <div class="payments-div" style="width:20%;">
+                        <p>99999</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="payments-div" style="width:15%;">
+                        <p>2</p>
+                    </div>
+                    <div class="payments-div" style="width:65%;">
+                        <p>Setting</p>
+                    </div>
+                    <div class="payments-div" style="width:20%;">
+                        <p>99999</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="payments-div" style="width:15%;">
+                        <p>3</p>
+                    </div>
+                    <div class="payments-div" style="width:65%;">
+                        <p>Setting</p>
+                    </div>
+                    <div class="payments-div" style="width:20%;">
+                        <p>99999</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end of pannel section -->
+        </div><!--end menu-for-currency class-->
+    </ion-content>
+    <!--Menu dashboard section-->
+</ion-view>
