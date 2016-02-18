@@ -1829,6 +1829,6 @@ md-sidenav {
   font-size: 13px !important;
 }
 .email-tnt{
-  text-align: left;
+  text-align: left !important;
   padding-left: 5px;
 }
