@@ -1,5 +1,5 @@
 // Controller of menu dashboard page.
-appControllers.controller('menuDashboardCtrl', function ($scope, $mdToast, $mdBottomSheet) {
+appControllers.controller('menuDashboardCtrl', function ($scope,$mdMedia,$mdDialog,$mdToast, $mdBottomSheet) {
 
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     $scope.onezoneDatepicker = {
@@ -75,4 +75,30 @@ appControllers.controller('menuDashboardCtrl', function ($scope, $mdToast, $mdBo
     properties.find().then(function (success) {
         $scope.propertyLength = success.length; 
     });
+
+    /* filter modal start code */
+    $scope.showAdvanced = function(ev) {
+        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+        $mdDialog.show({
+            controller: FilterController,
+            templateUrl: 'dialog1.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: useFullScreen
+        })
+        .then(function(answer) {
+            $scope.status = 'You said the information was "' + answer + '".';
+        }, function() {
+            $scope.status = 'You cancelled the dialog.';
+        });
+    };
+
+    /* filetr cancel code start */
+    function FilterController($scope){
+        $scope.cancel = function() {
+            $mdDialog.cancel();
+        };
+    }
+
 });// End of controller menu dashboard.

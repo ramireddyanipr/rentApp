@@ -1777,3 +1777,36 @@ md-sidenav {
         color: gray; }
   #map-and-location div.map-input-option div.footer {
     margin-top: 24px; }
+
+
+/*dashboard styles start*/
+
+.top-heading{
+  color: gray;
+  margin-bottom: 0px;
+  margin-top: 7px;
+}
+.filter-button{
+  right: 0px !important; 
+  margin-top: 0px !important;
+  width: 30px !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  padding: 7px !important;
+}
+.filter-button .fa-filter{
+  font-size: 17px !important;
+}
+.text-white{
+  color: #fff;
+}
+.alert-height{
+  min-height: 40px !important;
+  height: 40px !important;
+}
+.alert-height h5{
+  font-weight: bold;
+}
+.md-icon-button .fa-close{
+  text-align: right;
+}
