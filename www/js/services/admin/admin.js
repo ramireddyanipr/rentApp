@@ -4,13 +4,12 @@ appServices.factory('dashBoard', function ($q, $timeout) {
         this.collectedPayment = [];
         this.duePayment = [];
         this.usersRegistered = [];
-    }
+    };
     
     dashBoard.prototype.getCollectedPayment = function (user, sDate, eDate) {
-        console.log('get payment collected');
         
         // body...
-        var def = $q.defer()
+        var def = $q.defer();
         var result = [];
 
         var processCallback = function(res) {
@@ -55,9 +54,12 @@ appServices.factory('dashBoard', function ($q, $timeout) {
         process(false);
         
         this.load = true;
+        
+        console.log(def.promise)
         return def.promise
     }; // end
     
+    console.log(dashBoard);
     return dashBoard;
 });
 
