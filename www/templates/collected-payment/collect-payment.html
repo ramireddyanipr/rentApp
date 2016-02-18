@@ -1,7 +1,14 @@
 <style>
-.main-con{
-    top: 93px;
-}
+    .main-con{
+        top: 93px;
+    }
+    #menu-dashboard-content {
+        background-color: #fff !important;
+    } 
+    md-progress-circular {
+        position: absolute;
+        left: 35%;
+    }
 </style>
 <ion-view title="Collected payment">
     <!--left button on navigation bar-->
@@ -42,8 +49,12 @@
                 </div>
             </div><!--end-->
         <ion-content id="menu-dashboard-content" class="main-con">
+            
+            <div ng-show="load" layout="row" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
             <!-- start of pannel section -->
-            <div class="menu-panel">
+            <div ng-show="!load" class="menu-panel">
                 <div class="row table-head">
                     <div class="payments-div" style="width:15%;">
                         <p>S.no</p>

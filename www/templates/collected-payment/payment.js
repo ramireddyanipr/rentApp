@@ -1,5 +1,5 @@
 // Controller of menu dashboard page.
-appControllers.controller('collectPaymentCtrl', function ($scope,$mdMedia,$mdDialog,$mdToast,                    $mdBottomSheet, $q, dashBoard) {
+appControllers.controller('collectPaymentCtrl', function ($scope,$mdMedia,$mdDialog,$mdToast,                    $mdBottomSheet, $q, $timeout, dashBoard) {
 
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     $scope.sDate = {
@@ -25,9 +25,12 @@ appControllers.controller('collectPaymentCtrl', function ($scope,$mdMedia,$mdDia
     
     // getting the list of collected payment data using service
     var dashboard = new dashBoard();
-    dashboard.getCollectedPayment($scope.userType, $scope.sDate.date, $scope.eDate.date)
+    $scope.load = dashboard.getCollectedPayment($scope.userType, $scope.sDate.date, $scope.eDate.date)
     .then (function (data) {
         $scope.payment = JSON.parse(JSON.stringify(data));
+        
+        $timeout (function () {$scope.load = false;}, 1000)
+        
     }, function (error) {
         console.log(error);
     });
