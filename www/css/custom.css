@@ -71,3 +71,11 @@ md-option .md-text {
     padding: 17px;
     color: #666;
 }
+
+md-progress-circular {
+    position: absolute;
+    left: 35%;
+}
+#menu-dashboard-content {
+    background-color: #fff !important;
+}

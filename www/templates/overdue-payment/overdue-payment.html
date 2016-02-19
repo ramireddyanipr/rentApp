@@ -28,8 +28,20 @@
                 </div>
             </div><!--end-->
         <ion-content id="menu-dashboard-content" class="main-con">
+            <div ng-show="load" layout="row" layout-sm="column" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            
+            <div ng-show="!load && !overDue.length" class="row" style="margin-top: 20px;">
+                <div class="col">
+                    <h3 class="text-center">
+                        No results found!!
+                    </h3><!--end h3-->
+                </div><!--end col-->
+            </div><!--end row-->
+            
             <!-- start of pannel section -->
-            <div class="menu-panel">
+            <div ng-show="!load && overDue.length" class="menu-panel">
                 <div class="row table-head">
                     <div class="payments-div" style="width:15%;">
                         <p>S.no</p>
@@ -41,46 +53,25 @@
                         <p>Amount</p>
                     </div>
                 </div>
-
-                <div class="row">
+                
+                <div class="row" ng-repeat="i in overDue">
                     <div class="payments-div" style="width:15%;">
-                        <p>1</p>
+                        <p>
+                            {{ $index + 1 }}
+                        </p>
                     </div>
                     <div class="payments-div" style="width:65%;">
-                        <p class="email-tnt">Setting</p>
+                        <p class="email-tnt">
+                            {{ i.tenantPointer.Email }}
+                        </p>
                     </div>
                     <div class="payments-div" style="width:20%;">
-                        <p>99999</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="payments-div" style="width:15%;">
-                        <p>2</p>
-                    </div>
-                    <div class="payments-div" style="width:65%;">
-                        <p class="email-tnt">Setting</p>
-                    </div>
-                    <div class="payments-div" style="width:20%;">
-                        <p>99999</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="payments-div" style="width:15%;">
-                        <p>3</p>
-                    </div>
-                    <div class="payments-div" style="width:65%;">
-                        <p class="email-tnt">Setting</p>
-                    </div>
-                    <div class="payments-div" style="width:20%;">
-                        <p>99999</p>
-                    </div>
-                </div>
-
-            </div>
-            <!-- end of pannel section -->
+                        <p>
+                            {{ i.amountToBePaid }}
+                        </p><!--end p-->
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!-- end of pannel section -->
         </div><!--end menu-for-currency class-->
-    </ion-content>
-    <!--Menu dashboard section-->
-</ion-view>
+    </ion-content><!--Menu dashboard section-->
+</ion-view><!--ion view-->
